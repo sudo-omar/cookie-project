@@ -13,7 +13,8 @@
 
 using namespace std;
 
-int main() {
+int main() 
+{
     //PART A:
     Cookie cookie1;
     cout << "Name: " << cookie1.getName() << "\n" <<
@@ -24,15 +25,16 @@ int main() {
     cookie1.setName("Lemon Square Bars");
     cookie1.setCalories(140);
     cookie1.setServings(30);
-    cookie1.setIngredients(vector<string>{ "Flour", "sugar", "butter", "eggs",
-        "lemon juice" });
+    cookie1.setIngredients(vector<string>{ "Flour", "sugar", 
+        "butter", "eggs", "lemon juice" });
 
     cout << "Name: " << cookie1.getName() << "\n" <<
         "Calories: " << cookie1.getCalories() << "\n" <<
         "Servings: " << cookie1.getServings() << '\n';
 
     //second obj
-    Cookie cookie2("omars cookie", 100, 2, { "Omar's flour", "Omar's sugar" });
+    Cookie cookie2("omars cookie", 100, 2, { "Omar's flour", 
+        "Omar's sugar" });
 
     cout << "Name: " << cookie2.getName() << "\n" <<
         "Calories: " << cookie2.getCalories() << "\n" <<
@@ -45,7 +47,8 @@ int main() {
 
     cout << "\n";
 
-    Cookie cookie3("Matcha Crinkle", 150, 14, { "matcha", "milk", "flour", "eggs" });
+    Cookie cookie3("Matcha Crinkle", 150, 14, { "matcha", "milk", 
+        "flour", "eggs" });
     cookieList1.addCookie(cookie3);
     cookieList1.printAllCookies();
 
@@ -90,12 +93,16 @@ int main() {
     //TESTING longer param
     cout << "\nTESTING LONGER PARAM\n";
     CookieList cookieList3;
-    cookieList3.addCookie("Ashley's cookie", 109, 4, { "Ashley's flour", "Ashley's sugar",
+    cookieList3.addCookie("Ashley's cookie", 109, 4, 
+        { "Ashley's flour", "Ashley's sugar",
         "Ashley's baking powder" });
-    cookieList3.addCookie("Omar's special cookie", 100, 3, { "creatine", "test", "milk" });
+    cookieList3.addCookie("Omar's special cookie", 100, 3, 
+        { "creatine", "test", "milk" });
 
     CookieList cookieList4;
-    cookieList4.addCookie("Justin's cookie", 200, 3, { "Justin’s flour", "Justin’s sugar", "Justin’s baking powder" });
+    cookieList4.addCookie("Justin's cookie", 200, 3, 
+        { "Justin’s flour", "Justin’s sugar", 
+        "Justin’s baking powder" });
 
     cout << "\n";
 

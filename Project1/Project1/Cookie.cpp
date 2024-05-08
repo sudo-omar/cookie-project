@@ -9,7 +9,6 @@
 #include "Cookie.h"
 
 #include <iostream>
-
 using namespace std;
 
 string Cookie::getName() const
@@ -81,6 +80,7 @@ void Cookie::printIngredients() const
 		cout << *itr << " ";
 		++itr;
 	}
+
 	cout << "\n";
 }
 

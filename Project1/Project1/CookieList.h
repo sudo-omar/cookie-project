@@ -35,8 +35,9 @@ public:
 	
 	// Functions addCookie
 	void addCookie(const Cookie& newCookie);
-	void addCookie(const std::string& newName, size_t newCalories, size_t newServings,
-		std::set<std::string> newIngredients);
+	void addCookie(const std::string& newName, size_t newCalories, 
+		size_t newServings, const std::set<std::string> 
+		newIngredients);
 
 	// Accessor function
 	size_t getCount() const;

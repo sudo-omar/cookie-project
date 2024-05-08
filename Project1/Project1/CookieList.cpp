@@ -28,8 +28,9 @@ void CookieList::addCookie(const Cookie& newCookie)
 	++count;
 }
 
-void CookieList::addCookie(const std::string& newName, size_t newCalories, 
-	size_t newServings, std::set<std::string> newIngredients)
+void CookieList::addCookie(const std::string& newName,
+	size_t newCalories, size_t newServings, 
+	std::set<std::string> newIngredients)
 {	
 	if (count == 0)
 	{
@@ -39,8 +40,8 @@ void CookieList::addCookie(const std::string& newName, size_t newCalories,
 	}
 	else
 	{
-		last->setNext(new Node(Cookie(newName, newCalories, newServings, 
-			newIngredients), nullptr));
+		last->setNext(new Node(Cookie(newName, newCalories,
+			newServings, newIngredients), nullptr));
 		last = last->getNext();
 	}
 
@@ -138,13 +139,13 @@ CookieList& CookieList::operator=(const CookieList& rightSide)
 
 			//delete rest of nodes after filling
 			Node* temp = currOfThis;
+
 			while (currOfThis->getNext() != nullptr)
 			{
 				currOfThis = currOfThis->getNext();
 				delete temp;
 				temp = currOfThis;
 			}
-
 		}
 		else
 		{
@@ -164,7 +165,6 @@ CookieList& CookieList::operator=(const CookieList& rightSide)
 				addCookie(currOfParam->getCookie());
 				currOfParam = currOfParam->getNext();
 			}
-
 		}
 		count = rightSide.count;
 	}
