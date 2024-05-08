@@ -123,49 +123,21 @@ CookieList::CookieList(const CookieList& otherCookieList)
 
 CookieList& CookieList::operator=(const CookieList& rightSide)
 {
-	if (this != &rightSide)
+	if (&rightSide == this) {
+		cerr << "Attempted assignment to itself.";
+	}
+	else
 	{
-		if (count >= rightSide.count)
-		{
-			Node* curr = rightSide.first;
-			Node* currOfThis = first;
-
-			while (curr != nullptr)
-			{
-				currOfThis->setCookie(curr->getCookie());
-				curr = curr->getNext();
-				currOfThis = currOfThis->getNext();
-			}
-
-			//delete rest of nodes after filling
-			Node* temp = currOfThis;
-
-			while (currOfThis->getNext() != nullptr)
-			{
-				currOfThis = currOfThis->getNext();
-				delete temp;
-				temp = currOfThis;
-			}
+		if (count != 0) {
+			clearList();
 		}
-		else
-		{
-			Node* curr = first;
-			Node* currOfParam = rightSide.first;
 
-			while (curr != nullptr)
-			{
-				curr->setCookie(currOfParam->getCookie());
-				curr = curr->getNext();
-				currOfParam = currOfParam->getNext();
-			}
-
-			//add new nodes
-			while (currOfParam != nullptr)
-			{
-				addCookie(currOfParam->getCookie());
-				currOfParam = currOfParam->getNext();
-			}
+		Node* temp = rightSide.first;
+		while (temp != nullptr) {
+			addCookie(temp->getCookie());
+			temp = temp->getNext();
 		}
+
 		count = rightSide.count;
 	}
 
