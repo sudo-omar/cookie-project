@@ -9,7 +9,6 @@
 #include "CookieList.h"
 
 #include <iostream>
-
 using namespace std;
 
 void CookieList::addCookie(const Cookie& newCookie)
@@ -30,7 +29,7 @@ void CookieList::addCookie(const Cookie& newCookie)
 
 void CookieList::addCookie(const std::string& newName,
 	size_t newCalories, size_t newServings, 
-	std::set<std::string> newIngredients)
+	const std::set<std::string> newIngredients)
 {	
 	if (count == 0)
 	{
@@ -110,6 +109,8 @@ CookieList::~CookieList()
 
 CookieList::CookieList(const CookieList& otherCookieList)
 {
+	first = nullptr;
+	last = nullptr;
 	Node* current = otherCookieList.first;
 
 	while (current != nullptr)
@@ -121,24 +122,28 @@ CookieList::CookieList(const CookieList& otherCookieList)
 	count = otherCookieList.count;
 }
 
-CookieList& CookieList::operator=(const CookieList& rightSide)
+CookieList& CookieList::operator=(const CookieList& otherCookieList)
 {
-	if (&rightSide == this) {
+	if (&otherCookieList == this) 
+	{
 		cerr << "Attempted assignment to itself.";
 	}
 	else
 	{
-		if (count != 0) {
+		if (count != 0) 
+		{
 			clearList();
 		}
 
-		Node* temp = rightSide.first;
-		while (temp != nullptr) {
+		Node* temp = otherCookieList.first;
+
+		while (temp != nullptr) 
+		{
 			addCookie(temp->getCookie());
 			temp = temp->getNext();
 		}
 
-		count = rightSide.count;
+		count = otherCookieList.count;
 	}
 
 	return *this;
