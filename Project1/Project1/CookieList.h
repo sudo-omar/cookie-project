@@ -53,9 +53,9 @@ public:
 	void clearList();
 
 	// The Big Three
-	~CookieList();
 	CookieList(const CookieList& otherCookieList);
 	CookieList& operator=(const CookieList& rightSide);
+	~CookieList();
 
 private:
 	Node* first;

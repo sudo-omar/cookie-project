@@ -72,16 +72,10 @@ void Cookie::printIngredients() const
 {
 	cout << "Ingredients: ";
 
-	auto itr = ingredients.begin();
-	auto itrEnd = ingredients.end();
-
-	while (itr != itrEnd)
+	for (const string& anIngredient : ingredients)
 	{
-		cout << *itr << " ";
-		++itr;
+		cout << anIngredient << ", ";
 	}
-
-	cout << "\n";
 }
 
 void Cookie::printCalories() const
