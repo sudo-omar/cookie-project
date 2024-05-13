@@ -130,12 +130,14 @@
     <ClInclude Include="Cookie.h" />
     <ClInclude Include="CookieDB.h" />
     <ClInclude Include="CookieList.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Testing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cookie.cpp" />
     <ClCompile Include="CookieDB.cpp" />
     <ClCompile Include="CookieList.cpp" />
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Testing.cpp" />
   </ItemGroup>

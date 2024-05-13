@@ -76,13 +76,40 @@ bool CookieList::searchCookie(const std::string& cookieName) const
 void CookieList::printAllCookies() const
 {
 	Node* current = first;
-	
+
 	while (current != nullptr)
 	{
-		cout << current->getCookie().getName() << ", ";
+		cout << current->getCookie().getName() << endl;
 		current = current->getNext();
 	}
 }
+
+void CookieList::printCookiesSelection() const
+{
+	Node* current = first;
+	int num = 1;
+
+	while (current != nullptr)
+	{
+		cout << "    " << num << "." 
+			<< current->getCookie().getName() << endl;
+		current = current->getNext();
+		++num;
+	}
+}
+
+void CookieList::printRecipe(size_t cookieSelection) const
+{
+	cout << "    ";
+	getCookieLocation(cookieSelection)->getCookie().printRecipe();
+}
+
+void CookieList::printCalories(size_t cookieSelection) const
+{
+	cout << "    ";
+	getCookieLocation(cookieSelection)->getCookie().printCalories();
+}
+
 
 void CookieList::clearList()
 {
@@ -148,4 +175,16 @@ CookieList& CookieList::operator=(const CookieList& otherCookieList)
 
 	return *this;
 
+}
+
+Node* CookieList::getCookieLocation(size_t cookieSelection) const
+{
+	Node* curr = first;
+
+	for (size_t i = 0; i < cookieSelection; ++i)
+	{
+		curr = curr->getNext();
+	}
+
+	return curr;
 }

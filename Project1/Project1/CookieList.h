@@ -49,6 +49,12 @@ public:
 	// Function printAllCookies
 	void printAllCookies() const;
 
+	// Additional functions
+	void printCookiesSelection() const;
+	void printRecipe(size_t cookieSelection) const;
+	void printCalories(size_t cookieSelection) const;
+	void printLimitedCalories(size_t maxNumOfCalories) const;
+
 	// Function clearList
 	void clearList();
 
@@ -61,6 +67,8 @@ private:
 	Node* first;
 	Node* last;
 	size_t count;
+
+	Node* getCookieLocation(size_t cookieSelection) const;
 };
 
 #endif

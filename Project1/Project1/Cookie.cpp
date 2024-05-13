@@ -64,22 +64,27 @@ void Cookie::setIngredients(const vector<string>& newIngredients)
 
 void Cookie::printRecipe() const
 {
-	cout << "Name: " << name << "\n";
-	cout << "Servings: " << servings << "\n";
+	cout << "Recipe for " << name << endl
+		<< "    Servings: " << servings << endl 
+		<< "    ";
+	printIngredients();
 }
 
 void Cookie::printIngredients() const
 {
-	cout << "Ingredients: ";
+	cout << "Ingredients: " << *ingredients.begin();
 
-	for (const string& anIngredient : ingredients)
+	auto iterBegin = ++ingredients.begin();
+	auto iterEnd = ingredients.end();
+
+	while (iterBegin != iterEnd)
 	{
-		cout << anIngredient << ", ";
+		cout << ", " << *iterBegin;
+		++iterBegin;
 	}
 }
 
 void Cookie::printCalories() const
 {
-	cout << "Name: " << name << "\n";
-	cout << "Calories: " << calories << "\n";
+	cout << name << " (calories: " << calories << ")";
 }
