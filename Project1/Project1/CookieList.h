@@ -54,6 +54,7 @@ public:
 	void printRecipe(size_t cookieSelection) const;
 	void printCalories(size_t cookieSelection) const;
 	void printLimitedCalories(size_t maxNumOfCalories) const;
+	bool checkSufficientServings(size_t cookieSelection, size_t partySize) const;
 
 	// Function clearList
 	void clearList();

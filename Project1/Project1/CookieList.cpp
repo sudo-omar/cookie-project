@@ -79,7 +79,7 @@ void CookieList::printAllCookies() const
 
 	while (current != nullptr)
 	{
-		cout << current->getCookie().getName() << endl;
+		cout << "    " << current->getCookie().getName() << endl;
 		current = current->getNext();
 	}
 }
@@ -91,7 +91,7 @@ void CookieList::printCookiesSelection() const
 
 	while (current != nullptr)
 	{
-		cout << "    " << num << "." 
+		cout << "    " << num << ": " 
 			<< current->getCookie().getName() << endl;
 		current = current->getNext();
 		++num;
@@ -102,14 +102,32 @@ void CookieList::printRecipe(size_t cookieSelection) const
 {
 	cout << "    ";
 	getCookieLocation(cookieSelection)->getCookie().printRecipe();
+	cout << endl;
 }
 
 void CookieList::printCalories(size_t cookieSelection) const
 {
-	cout << "    ";
 	getCookieLocation(cookieSelection)->getCookie().printCalories();
 }
 
+void CookieList::printLimitedCalories(size_t maxNumOfCalories) const
+{
+	Node* curr = first;
+	while (curr != nullptr)
+	{
+		if (curr->getCookie().getCalories() < maxNumOfCalories)
+		{
+			cout << "    ";
+			curr->getCookie().printCalories();
+		}
+		curr = curr->getNext();
+	}
+}
+
+bool CookieList::checkSufficientServings(size_t cookieSelection, size_t partySize) const
+{
+	return (getCookieLocation(cookieSelection)->getCookie().getServings() > partySize);
+}
 
 void CookieList::clearList()
 {
@@ -181,7 +199,7 @@ Node* CookieList::getCookieLocation(size_t cookieSelection) const
 {
 	Node* curr = first;
 
-	for (size_t i = 0; i < cookieSelection; ++i)
+	for (size_t i = 0; i < cookieSelection - 1; ++i)
 	{
 		curr = curr->getNext();
 	}
