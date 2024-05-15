@@ -115,7 +115,7 @@ void CookieList::printLimitedCalories(size_t maxNumOfCalories) const
 	Node* curr = first;
 	while (curr != nullptr)
 	{
-		if (curr->getCookie().getCalories() < maxNumOfCalories)
+		if (curr->getCookie().getCalories() <= maxNumOfCalories)
 		{
 			cout << "    ";
 			curr->getCookie().printCalories();
