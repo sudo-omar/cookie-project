@@ -135,7 +135,8 @@ void processChoice(CookieList& cookieList)
 			case 'e':
 				cout << string(62, '-') << endl << "    COOKIE RECIPES"
 					<< endl << string(62, '-') << endl << endl
-					<< "Choose a cookie to view the serving size." << endl;
+					<< "Choose a cookie to view the serving size." 
+					<< endl << endl;
 
 				cookieList.printCookiesSelection();
 
@@ -177,18 +178,16 @@ void processChoice(CookieList& cookieList)
 				cin >> input;
 				cout << endl;
 
-				switch (input)
+				if (input == 'y') 
 				{
-				case 'y':
 					displayMenu();
-					break;
-				case 'n':
+				}
+				else if (input == 'n') 
+				{
 					cout << "Thank you for using our software. Good bye!";
 					done = true;
-					break;
-				default:
-					break;
 				}
+				
 			}
 			
 	}
